@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <title>JS House</title>
+    
+   
+</head>
+<body class="normal" id="mbody">
+    <header>
+        <h1><a href="mainhome.html"> 쭝이빵이 홈페이지</a></h1>
+    </header>
+    
+    <nav>
+        <h2>목록</h2>
+        <ul>
+            <?php
+            $buffer = file_get_contents("menu.txt");
+            $buffer = iconv('EUC-KR','UTF-8',$buffer);
+            echo $buffer;
+            ?>
+        </ul>
+    </nav>
+    <div id="control">
+        <input type="button" value="평상시" onclick="document.getElementById('mbody').className='normal'" />
+        <input type="button" value="색상반전" onclick="document.getElementById('mbody').className='action'" />
+        <a href="http://localhost/JPPage/write.html">쓰기</a>
+    </div>
+    <article>
+        <ul id="target">
+            <li>첫번째</li>
+            <li>두번째</li>
+        </ul>
+        <input type="text" id="newtitle"/><br />
+        <input type="button" value="추가하기" onclick="callAppendChild(document.getElementById('newtitle').value);"/>
+        <table border="1" class="content" id="contable">
+            <tr>
+                <th class="docNum">글 번호</th>
+                <th class="docTitle">제목</th>
+                <th class="docTime">작성날짜</th>
+            </tr>
+        </table>
+        <script>
+            function callAppendChild(docNum,title,time) {
+                var table = document.getElementById('contable');
+                var tr = document.createElement('tr');
+                var td1 = document.createElement('td');
+                var td2 = document.createElement('td');
+                var td3 = document.createElement('td');
+                var text1 = document.createTextNode(id);
+                var text2 = document.createTextNode(string);
+                var text3 = document.createTextNode(time);
+                td1.appendChild(text1);
+                td2.appendChild(text2);
+                td3.appendChild(text3);
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                table.appendChild(tr);
+            }
+            function malert(str) {
+                alert(str);
+            }
+        </script>
+        <?php
+        $pageid = $_GET['id'];
+        if(empty($pageid)==false){
+        if(!$conn = mysqli_connect("localhost","root","apmsetup")){
+        echo "mysql 연결실패<br />";
+        }
+        if(!mysqli_select_db($conn,"jppage")){
+        echo "db 선택 실패<br />";
+        }
+        if(!$result = mysqli_query($conn,"SELECT * FROM ".$pageid."table")){
+        echo "query 실패<br />";
+        }
+        while($row = mysqli_fetch_assoc($result)){
+        // echo $row["id"]."=>";
+        // echo $row["title"]."=>";
+        // echo $row["contents"];
+        // echo "<br />";
+        // echo('<script>callAppendChild($row["id"], $row["title"], $row["created"]);</script>');
+        // echo "<script>malert($row['"."title']);</script>";
+        
+        }
+        // $buffer = file_get_contents($_GET['id'].".txt");
+        // $buffer = iconv('EUC-KR','UTF-8',$buffer);
+        // echo $buffer;
+        }
+        else{
+        echo "<h2>본문의 자리야</h2>";
+        // if(!$conn = mysqli_connect("localhost","root","apmsetup")){
+        // echo "mysql 연결실패<br />";
+        // }
+        // if(!mysqli_select_db($conn,"jppage")){
+        // echo "db 선택 실패<br />";
+        // }
+        // if(!$result = mysqli_query($conn,"SELECT * FROM topic")){
+        // echo "query 실패<br />";
+        // }
+        // while($row = mysqli_fetch_assoc($result)){
+        // echo $row["id"]."=>";
+        // echo $row["title"];
+        // echo "<br />";
+        // }
+        }
+        
+        
+        ?>
+        
+        
+    </article>
+
+    
+</body>
+</html>

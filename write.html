@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <title>JS House</title>
+    
+   
+</head>
+<body class="normal" id="mbody">
+    <header>
+        <h1><a href="mainhome.html"> 쭝이빵이 홈페이지</a></h1>
+    </header>
+    
+    <nav>
+        <h2>목록</h2>
+        <ul>
+            <?php
+            $buffer = file_get_contents("menu.txt");
+            $buffer = iconv('EUC-KR','UTF-8',$buffer);
+            echo $buffer;
+            ?>
+        </ul>
+    </nav>
+    <div id="control">
+        <input type="button" value="평상시" onclick="document.getElementById('mbody').className='normal'" />
+        <input type="button" value="색상반전" onclick="document.getElementById('mbody').className='action'" />
+        <a href="http://localhost/JPPage/write.html">쓰기</a>
+    </div>
+    <article>
+        <?php
+        $pageid = $_GET["pageid"];
+        echo "
+        <form action="http://localhost/JPPage/inputdb.php" method="POST">
+            <p>제목 : <input type="text" name="title" /></p>
+            <p>본문 : <textarea name="description"></textarea></p>
+            <input type="submit" value="제출" />
+        </form>
+        ";
+        ?>
+    </article>
+
+    
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿header{
+   border-bottom:3px solid gray;
+   padding:20px;
+}
+body.normal
+{
+     background-color:#FFFF99;     
+}
+body.action{
+    background-color:black;
+    color:white;
+}
+nav{
+    width:150px;
+    border-right:2px solid gray;
+    float:left;
+    height:500px;
+}
+nav ul{
+    list-style:none;
+}
+#control{
+    float:right;
+}
+
+article{
+    position:relative;
+    padding:20px;
+    display:block;
+    float:left;
+    width:500px;
+    border:1px solid red;
+  
+}
+
+table.content{
+    width:500px;
+}
+th.docNum{
+    width:100px;
+}
+th.docTime{
+    width:100px;
+}

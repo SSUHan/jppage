@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>LOGIN</title>
+    <style>
+        .box{
+            border:1px solid yellow;
+            background-color:yellow;
+            text-align:center;
+            position:relative;
+            top:100px;
+            vertical-align:middle;
+            width:400px;
+            height:250px;
+            margin:auto;
+            padding-top:25px;
+        }
+        p.logo{
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2 class="logo">들어올라면 로그인하세용</h2>
+        <div>
+            <form action="http://ljs93kr.cafe24.com/JPPage/logincheck.php" method="POST">
+                <p>아이디 : <input type="text" name="user-id"/></p>
+                <p>비밀번호 : <input type="password" name="user-pw"/></p>
+                <input type="submit" value="로그인" />
+                <input type="button" value="회원가입" style="margin:10px;" onclick="document.location.href='http://localhost/JPPage/join.html';" />
+            </form>
+        </div>
+    </div>
+    
+    <?php
+    $mode = $_GET['mode'];
+    if(empty($mode)==false){
+    if(strcmp($mode,"ok")==0){
+    
+    echo("<script>document.location.href = 'http://ljs93kr.cafe24.com/JPPage/mainhome.html';</script>");
+  
+    }
+    else{
+    echo ("<script>alert('로그인실패...회원가입을 하시오!');</script>");
+    }
+    }
+    ?>
+    
+</body>
+</html>
