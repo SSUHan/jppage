@@ -1,6 +1,6 @@
 <?php
 //path
-define("JPPATH",'http://ljs93kr.cafe24.com/JPPage/');
+define("JP_PATH",'http://ljs93kr.cafe24.com/JPPage/');
 
 // mysql
 define("MYSQL_IP","localhost");

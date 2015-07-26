@@ -25,7 +25,7 @@ echo "query fail...<br>";
 if(joinOK($user_id,$result)){
 	$sql = "INSERT INTO ".USER_TABLE." (userid, username, userpw, jointime) VALUES ('".$user_id."','".$user_name."','".$user_pw."',now())";
 	if(mysqli_query($conn,$sql)){
-		echo("<script>document.location.href='http://ljs93kr.cafe24.com/JPPage/join.html?mode=ok';</script>");
+		echo("<script>document.location.href='".JP_PATH."join.html?mode=ok';</script>");
 
 	}
 	else{
@@ -35,7 +35,7 @@ if(joinOK($user_id,$result)){
 
 }
 else{
-	echo("<script>document.location.href='http://ljs93kr.cafe24.com/JPPage/join.html?mode=no';</script>");
+	echo("<script>document.location.href='".JP_PATH."join.html?mode=no';</script>");
 }
 function joinOK($id,$result){
 	while($row = mysqli_fetch_assoc($result)){

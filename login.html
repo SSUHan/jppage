@@ -36,11 +36,12 @@
     </div>
     
     <?php
+    include("jpdefine.php");
     $mode = $_GET['mode'];
     if(empty($mode)==false){
     if(strcmp($mode,"ok")==0){
     
-    echo("<script>document.location.href = 'http://ljs93kr.cafe24.com/JPPage/mainhome.html';</script>");
+    echo("<script>document.location.href = '".JP_PATH."mainhome.html';</script>");
   
     }
     else{
